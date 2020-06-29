@@ -32,7 +32,7 @@ class HealthCheckControllerIntegrationTest {
     @Test
     @DisplayName("Successfully returns health status")
     public void returnHealthStatusSuccessfully() throws Exception {
-        this.mockMvc.perform(get("/company-documents/health-check"))
+        this.mockMvc.perform(get("/company-documents/healthcheck"))
                 .andExpect(status().isOk());
     }
 }

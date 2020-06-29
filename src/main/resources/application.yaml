@@ -7,4 +7,4 @@ uk:
     companieshouse:
       companydocuments:
         web:
-          health: /health-check
+          health: /healthcheck
