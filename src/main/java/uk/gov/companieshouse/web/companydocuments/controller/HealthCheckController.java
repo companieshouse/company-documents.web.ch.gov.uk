@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * Returns HTTP OK response to indicate a healthy service is running
  */
-@RequestMapping("/company-documents/healthcheck")
+@RequestMapping("/healthcheck")
 public class HealthCheckController {
 
     @GetMapping
