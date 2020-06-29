@@ -9,29 +9,11 @@ clean:
 	rm -f ./$(artifact_name).jar
 	rm -f ./$(artifact_name)-*.zip
 	rm -rf ./build-*
+	rm -f ./build.log
 
 .PHONY: build
 build:
-	mvn install
-
-.PHONY: test
-test: test-unit test-integration
-
-.PHONY: test-unit
-test-unit: clean
-	mvn test
-
-.PHONY: test-integration
-test-integration: clean
-	mvn -Dtest=*IntegrationTest test
-
-.PHONY: test-contract-provider
-test-contract-provider: clean
-	mvn -Dtest=*ProviderContractTest test
-
-.PHONY: test-contract-consumer
-test-contract-consumer: clean
-	mvn -Dtest=*ConsumerContractTest test
+	mvn compile
 
 .PHONY: dev
 dev: clean
