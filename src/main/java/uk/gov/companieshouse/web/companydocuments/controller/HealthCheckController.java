@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @RequestMapping("/company-documents/healthcheck")
 public class HealthCheckController {
+
     @GetMapping
     public ResponseEntity<Void> getHealthCheck (){
         return ResponseEntity.status(HttpStatus.OK).build();
