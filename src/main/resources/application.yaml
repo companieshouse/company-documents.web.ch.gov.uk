@@ -1,0 +1,10 @@
+server:
+  servlet:
+    context-path: /company-documents
+
+uk:
+  gov:
+    companieshouse:
+      companydocuments:
+        web:
+          health: /healthcheck
