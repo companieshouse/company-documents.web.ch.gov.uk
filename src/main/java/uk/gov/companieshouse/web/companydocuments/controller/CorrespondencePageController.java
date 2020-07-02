@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/correspondence")
+@RequestMapping("/company-documents/correspondence")
 public class CorrespondencePageController extends BaseController {
 
     @GetMapping
