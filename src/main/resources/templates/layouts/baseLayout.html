@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title layout:title-pattern="$CONTENT_TITLE"></title>
+    <div id="templateName" th:attr="data-id=${templateName},data-metadata=${metadata}" hidden></div>
+
+    <link
+        th:href="@{{cdnUrl}/stylesheets/chs-styles.css(cdnUrl=${@environment.getProperty('cdn.url')})}"
+        media="all" rel="stylesheet" type="text/css" />
+
+    <link
+            rel="icon"
+            th:href="@{{cdnUrl}/images/favicon.ico?0.17.3(cdnUrl=${@environment.getProperty('cdn.url')})}"
+            type="image/x-icon" />
+    
+</head>
+<body>
+    <div class="entire-wrapper">
+        <div th:replace="fragments/header :: header"></div>
+        <div class="govuk-width-container">
+            <div th:replace="fragments/betaBanner :: betaBanner"></div>
+            <main id="content" role="main" class="govuk-main-wrapper">
+                <div layout:fragment="content"></div>
+            </main>
+        </div>
+        <div class="push"></div>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

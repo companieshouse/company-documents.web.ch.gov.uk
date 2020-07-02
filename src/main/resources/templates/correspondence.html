@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/baseLayout}">
+<head>
+    <title>View Correspondence</title>
+</head>
+
+<body>
+<div id="criteria-main-content" layout:fragment="content">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <form id="correspondence-form" class="form" th:action="@{''}" method="post">
+                <header>
+                    <h1 id="page-title" class="govuk-heading-l">
+                        Correspondence
+                    </h1>
+                </header>
+                <button id="start-button" type="submit" class="govuk-button">
+                    Start
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

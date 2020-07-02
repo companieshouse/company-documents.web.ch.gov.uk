@@ -3,3 +3,4 @@ group: web
 weight: 991
 routes:
    1: ^/healthcheck
+   2: ^/correspondence
