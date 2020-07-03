@@ -2,4 +2,5 @@ app_name: company-documents.web.ch.gov.uk
 group: web
 weight: 991
 routes:
-   1: ^/healthcheck
+   1: ^/company-documents/healthcheck
+   2: ^/company-documents/view-correspondence
