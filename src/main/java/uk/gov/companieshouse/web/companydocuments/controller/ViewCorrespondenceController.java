@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/company-documents/correspondence/")
-public class CorrespondencePageController extends BaseController {
+@RequestMapping("/company-documents/view-correspondence/")
+public class ViewCorrespondenceController extends BaseController {
 
     @GetMapping
     public String getCorrespondence() {

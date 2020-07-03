@@ -16,12 +16,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith(MockitoExtension.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class CorrespondencePageControllerTest {
+public class ViewCorrespondenceControllerTest {
 
     private MockMvc mockMvc;
 
     @InjectMocks
-    private CorrespondencePageController controller;
+    private ViewCorrespondenceController controller;
 
     @BeforeEach
     private void setup() {
@@ -32,7 +32,7 @@ public class CorrespondencePageControllerTest {
     @Test
     @DisplayName("Get Correspondence - Successful")
     public void getCorrespondenceSuccessfully() throws Exception {
-        this.mockMvc.perform(get("/company-documents/correspondence/"))
+        this.mockMvc.perform(get("/company-documents/view-correspondence/"))
                 .andExpect(status().isOk());
     }
 }
