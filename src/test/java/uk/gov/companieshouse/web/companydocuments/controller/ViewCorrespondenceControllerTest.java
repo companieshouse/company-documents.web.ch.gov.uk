@@ -32,7 +32,7 @@ public class ViewCorrespondenceControllerTest {
     @Test
     @DisplayName("Get Correspondence - Successful")
     public void getCorrespondenceSuccessfully() throws Exception {
-        this.mockMvc.perform(get("/company-documents/view-correspondence/"))
+        this.mockMvc.perform(get("/company-documents/view-correspondence"))
                 .andExpect(status().isOk());
     }
 }
