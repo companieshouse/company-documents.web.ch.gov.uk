@@ -3,4 +3,4 @@ group: web
 weight: 991
 routes:
    1: ^/company-documents/healthcheck
-   2: ^/company-documents/view-correspondence/
+   2: ^/company-documents/view-correspondence

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/company-documents/view-correspondence/")
+@RequestMapping("/company-documents/view-correspondence")
 public class ViewCorrespondenceController extends BaseController {
 
     @GetMapping
@@ -20,6 +20,6 @@ public class ViewCorrespondenceController extends BaseController {
 
     @Override
     protected String getTemplateName() {
-        return "correspondence";
+        return "viewCorrespondence";
     }
 }
