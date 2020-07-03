@@ -20,6 +20,13 @@ dev: clean
 	mvn package -DskipTests=true
 	cp target/$(artifact_name)-unversioned.jar $(artifact_name).jar
 
+.PHONY: test
+test: test-unit
+
+.PHONY: test-unit
+test-unit: clean
+	mvn test
+
 .PHONY: package
 package:
 ifndef version
