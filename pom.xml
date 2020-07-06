@@ -16,6 +16,10 @@
         <java.version>1.8</java.version>
         <org.mapstruct.version>1.3.0.Final</org.mapstruct.version>
         <hamcrest-all-version>1.3</hamcrest-all-version>
+        <spring-security-core.version>5.2.5.RELEASE</spring-security-core.version>
+        <spring-security-config.version>5.0.8.RELEASE</spring-security-config.version>
+        <spring-security-web.version>5.0.8.RELEASE</spring-security-web.version>
+        <java-session-handler.version>2.0.0-rc4</java-session-handler.version>
         <start-class>uk.gov.companieshouse.web.companydocuments.CompanyDocumentsWebApplication</start-class>
     </properties>
 
@@ -62,6 +66,30 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring-security-core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring-security-config.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring-security-web.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>uk.gov.companieshouse</groupId>
+            <artifactId>java-session-handler</artifactId>
+            <version>${java-session-handler.version}</version>
         </dependency>
     </dependencies>
 
