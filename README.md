@@ -9,7 +9,7 @@ Web application for handling the retrieval of company documents
 * [Git][3]
 
 ### Getting Started
-1. Run `make` to build
+1. Run `make dev` to build
 2. Run `./start.sh` to run
 
 ### Environment Variables
