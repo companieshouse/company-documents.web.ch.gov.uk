@@ -1,5 +1,6 @@
 package uk.gov.companieshouse.web.companydocuments.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +12,9 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 @RequestMapping("/company-documents/view-correspondence")
 public class ViewCorrespondenceController extends BaseController {
 
+    @Value("${chs.url}")
+    private String chsUrl;
+
     @GetMapping
     public String getCorrespondence() {
         return getTemplateName();
@@ -20,7 +24,7 @@ public class ViewCorrespondenceController extends BaseController {
     public String postCorrespondence(RedirectAttributes attributes) {
 
         attributes.addAttribute("forward", "/company-documents/{companyNumber}/details");
-        return UrlBasedViewResolver.REDIRECT_URL_PREFIX + "/company-lookup/search";
+        return UrlBasedViewResolver.REDIRECT_URL_PREFIX + chsUrl + "/company-lookup/search";
     }
 
     @Override
