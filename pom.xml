@@ -27,7 +27,6 @@
         <snakeyaml.version>1.21</snakeyaml.version>
         <structured-logging.version>1.5.0-rc2</structured-logging.version>
 
-        
         <start-class>uk.gov.companieshouse.web.companydocuments.CompanyDocumentsWebApplication</start-class>
     </properties>
 
