@@ -27,5 +27,5 @@ else
     source "${APP_DIR}/app_env"
 fi
 
-exec java ${JAVA_MEM_ARGS} -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005 -jar -Dserver.port="${PORT}" "${APP_DIR}/company-documents.web.ch.gov.uk.jar"
+exec java ${JAVA_MEM_ARGS} -jar -Dserver.port="${PORT}" "${APP_DIR}/company-documents.web.ch.gov.uk.jar"
 
