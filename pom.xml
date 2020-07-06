@@ -21,6 +21,7 @@
         <spring-security-web.version>5.0.8.RELEASE</spring-security-web.version>
         <java-session-handler.version>2.0.0-rc4</java-session-handler.version>
         <start-class>uk.gov.companieshouse.web.companydocuments.CompanyDocumentsWebApplication</start-class>
+        <structured-logging.version>1.5.0-rc2</structured-logging.version>
     </properties>
 
     <dependencies>
@@ -90,6 +91,13 @@
             <groupId>uk.gov.companieshouse</groupId>
             <artifactId>java-session-handler</artifactId>
             <version>${java-session-handler.version}</version>
+        </dependency>
+
+        <!-- Logging dependencies -->
+        <dependency>
+            <groupId>uk.gov.companieshouse</groupId>
+            <artifactId>structured-logging</artifactId>
+            <version>${structured-logging.version}</version>
         </dependency>
     </dependencies>
 
