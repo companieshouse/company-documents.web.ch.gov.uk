@@ -1,6 +1,7 @@
 package uk.gov.companieshouse.web.companydocuments.util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 import java.util.HashMap;
@@ -23,11 +24,15 @@ public class EnumerationConstantsMapperTest {
 
     private static final String COMPANY_TYPE_VALUE = "companyTypeValue";
 
+    private static final String COMPANY_TYPE_OTHER_KEY = "companyTypeOtherKey";
+
     private static final String COMPANY_STATUS_CONSTANTS_KEY = "company_status";
 
     private static final String COMPANY_STATUS_KEY = "companyStatusKey";
 
     private static final String COMPANY_STATUS_VALUE = "companyStatusValue";
+
+    private static final String COMPANY_STATUS_OTHER_KEY = "companyStatusOtherKey";
 
     private static final String FILE_PATH = "api-enumerations/constants.yml";
 
@@ -62,9 +67,23 @@ public class EnumerationConstantsMapperTest {
     }
 
     @Test
+    @DisplayName("Get company type - not found")
+    void getCompanyTypeNotFound() {
+
+        assertThrows(IllegalArgumentException.class, () -> enumerationConstantsMapper.getCompanyType(COMPANY_TYPE_OTHER_KEY));
+    }
+
+    @Test
     @DisplayName("Get company status")
     void getCompanyStatus() {
 
         assertEquals(COMPANY_STATUS_VALUE, enumerationConstantsMapper.getCompanyStatus(COMPANY_STATUS_KEY));
+    }
+
+    @Test
+    @DisplayName("Get company status - not found")
+    void getCompanyStatusNotFound() {
+
+        assertThrows(IllegalArgumentException.class, () -> enumerationConstantsMapper.getCompanyStatus(COMPANY_STATUS_OTHER_KEY));
     }
 }

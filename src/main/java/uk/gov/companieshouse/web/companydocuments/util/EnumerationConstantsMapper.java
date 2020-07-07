@@ -22,11 +22,21 @@ public class EnumerationConstantsMapper {
 
     public String getCompanyType(String enumeration) {
 
-        return companyTypes.get(enumeration);
+        String companyType = companyTypes.get(enumeration);
+
+        if (companyType == null) {
+            throw new IllegalArgumentException("No company type found for enumeration: " + enumeration);
+        }
+        return companyType;
     }
 
     public String getCompanyStatus(String enumeration) {
 
-        return companyStatuses.get(enumeration);
+        String companyStatus = companyStatuses.get(enumeration);
+
+        if (companyStatus == null) {
+            throw new IllegalArgumentException("No company status found for enumeration: " + enumeration);
+        }
+        return companyStatus;
     }
 }
