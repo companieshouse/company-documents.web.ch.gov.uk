@@ -13,8 +13,12 @@ import uk.gov.companieshouse.web.companydocuments.service.CompanyService;
 @RequestMapping("/company-documents/{companyNumber}/details")
 public class CompanyDetailsController extends BaseController {
 
-    @Autowired
     private CompanyService companyService;
+
+    @Autowired
+    public CompanyDetailsController(CompanyService companyService) {
+        this.companyService = companyService;
+    }
 
     @GetMapping
     public String getCompanyDetails(@PathVariable String companyNumber,

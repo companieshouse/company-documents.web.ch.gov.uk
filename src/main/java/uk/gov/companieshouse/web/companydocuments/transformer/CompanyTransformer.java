@@ -10,8 +10,12 @@ import uk.gov.companieshouse.web.companydocuments.util.EnumerationConstantsMappe
 @Component
 public class CompanyTransformer {
 
-    @Autowired
     private EnumerationConstantsMapper enumerationConstantsMapper;
+
+    @Autowired
+    public CompanyTransformer(EnumerationConstantsMapper enumerationConstantsMapper) {
+        this.enumerationConstantsMapper = enumerationConstantsMapper;
+    }
 
     public CompanyDetail getCompanyDetail(CompanyProfileApi companyProfile) {
 

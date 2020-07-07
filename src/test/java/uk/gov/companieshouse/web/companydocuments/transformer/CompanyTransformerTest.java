@@ -11,7 +11,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import uk.gov.companieshouse.api.model.company.CompanyProfileApi;
@@ -48,7 +47,6 @@ public class CompanyTransformerTest {
     @Mock
     private EnumerationConstantsMapper enumerationConstantsMapper;
 
-    @InjectMocks
     private CompanyTransformer companyTransformer;
 
     @Mock
@@ -59,6 +57,8 @@ public class CompanyTransformerTest {
 
     @BeforeEach
     private void setup() {
+
+        this.companyTransformer = new CompanyTransformer(enumerationConstantsMapper);
 
         when(companyProfile.getCompanyNumber()).thenReturn(COMPANY_NUMBER);
 

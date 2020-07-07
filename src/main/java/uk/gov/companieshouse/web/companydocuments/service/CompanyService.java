@@ -16,11 +16,15 @@ public class CompanyService {
 
     private static final UriTemplate COMPANY_URI = new UriTemplate("/company/{companyNumber}");
 
-    @Autowired
     private ApiClientService apiClientService;
 
-    @Autowired
     private CompanyTransformer companyTransformer;
+
+    @Autowired
+    public CompanyService(ApiClientService apiClientService, CompanyTransformer companyTransformer) {
+        this.apiClientService = apiClientService;
+        this.companyTransformer = companyTransformer;
+    }
 
     public CompanyDetail getCompanyDetail(String companyNumber) {
 
