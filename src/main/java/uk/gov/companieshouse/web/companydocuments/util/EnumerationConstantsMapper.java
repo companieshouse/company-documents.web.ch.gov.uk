@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class EnumerationConstantsMapper {
 
-    private Map<String, String> companyTypes;
+    private final Map<String, String> companyTypes;
 
-    private Map<String, String> companyStatuses;
+    private final Map<String, String> companyStatuses;
 
     @Autowired
     public EnumerationConstantsMapper(YamlResourceMapper yamlResourceMapper) {
