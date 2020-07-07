@@ -28,6 +28,10 @@ import uk.gov.companieshouse.web.companydocuments.transformer.CompanyTransformer
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CompanyServiceTest {
 
+    private static final String COMPANY_NUMBER = "companyNumber";
+
+    private static final String COMPANY_URI = "/company/" + COMPANY_NUMBER;
+
     @Mock
     private ApiClient apiClient;
 
@@ -54,10 +58,6 @@ public class CompanyServiceTest {
 
     @InjectMocks
     private CompanyService companyService;
-
-    private static final String COMPANY_NUMBER = "companyNumber";
-
-    private static final String COMPANY_URI = "/company/" + COMPANY_NUMBER;
 
     @BeforeEach
     private void setup() {

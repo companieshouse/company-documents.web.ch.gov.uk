@@ -23,6 +23,14 @@ import uk.gov.companieshouse.web.companydocuments.service.CompanyService;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CompanyDetailsControllerTest {
 
+    private static final String COMPANY_NUMBER = "companyNumber";
+
+    private static final String COMPANY_DETAILS_PATH = "/company-documents/" + COMPANY_NUMBER + "/details";
+
+    private static final String COMPANY_DETAILS_VIEW = "companyDetails";
+
+    private static final String COMPANY_DETAILS_MODEL_ATTR = "companyDetail";
+
     private MockMvc mockMvc;
 
     @Mock
@@ -33,14 +41,6 @@ public class CompanyDetailsControllerTest {
 
     @InjectMocks
     private CompanyDetailsController controller;
-
-    private static final String COMPANY_NUMBER = "companyNumber";
-
-    private static final String COMPANY_DETAILS_PATH = "/company-documents/" + COMPANY_NUMBER + "/details";
-
-    private static final String COMPANY_DETAILS_VIEW = "companyDetails";
-
-    private static final String COMPANY_DETAILS_MODEL_ATTR = "companyDetail";
 
     @BeforeEach
     private void setup() {

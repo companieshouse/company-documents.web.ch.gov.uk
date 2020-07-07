@@ -23,18 +23,6 @@ import uk.gov.companieshouse.web.companydocuments.util.EnumerationConstantsMappe
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CompanyTransformerTest {
 
-    @Mock
-    private EnumerationConstantsMapper enumerationConstantsMapper;
-
-    @InjectMocks
-    private CompanyTransformer companyTransformer;
-
-    @Mock
-    private CompanyProfileApi companyProfile;
-
-    @Mock
-    private RegisteredOfficeAddressApi registeredOfficeAddress;
-
     private static final String COMPANY_NUMBER = "companyNumber";
 
     private static final String COMPANY_NAME = "companyName";
@@ -56,6 +44,18 @@ public class CompanyTransformerTest {
     private static final String FORMATTED_ROA = ADDRESS_LINE_1 + ", " + ADDRESS_LINE_2 + ", " + POSTCODE;
 
     private static final LocalDate INCORPORATION_DATE = LocalDate.of(2020, 1, 1);
+
+    @Mock
+    private EnumerationConstantsMapper enumerationConstantsMapper;
+
+    @InjectMocks
+    private CompanyTransformer companyTransformer;
+
+    @Mock
+    private CompanyProfileApi companyProfile;
+
+    @Mock
+    private RegisteredOfficeAddressApi registeredOfficeAddress;
 
     @BeforeEach
     private void setup() {

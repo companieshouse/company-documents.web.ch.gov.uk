@@ -17,11 +17,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class EnumerationConstantsMapperTest {
 
-    @Mock
-    private YamlResourceMapper yamlResourceMapper;
-
-    private EnumerationConstantsMapper enumerationConstantsMapper;
-
     private static final String COMPANY_TYPE_CONSTANTS_KEY = "company_type";
 
     private static final String COMPANY_TYPE_KEY = "companyTypeKey";
@@ -35,6 +30,11 @@ public class EnumerationConstantsMapperTest {
     private static final String COMPANY_STATUS_VALUE = "companyStatusValue";
 
     private static final String FILE_PATH = "api-enumerations/constants.yml";
+
+    @Mock
+    private YamlResourceMapper yamlResourceMapper;
+
+    private EnumerationConstantsMapper enumerationConstantsMapper;
 
     @BeforeEach
     private void setup() {

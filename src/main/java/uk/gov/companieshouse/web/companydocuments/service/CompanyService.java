@@ -14,13 +14,13 @@ import uk.gov.companieshouse.web.companydocuments.transformer.CompanyTransformer
 @Service
 public class CompanyService {
 
+    private static final UriTemplate COMPANY_URI = new UriTemplate("/company/{companyNumber}");
+
     @Autowired
     private ApiClientService apiClientService;
 
     @Autowired
     private CompanyTransformer companyTransformer;
-
-    private static final UriTemplate COMPANY_URI = new UriTemplate("/company/{companyNumber}");
 
     public CompanyDetail getCompanyDetail(String companyNumber) {
 
