@@ -16,7 +16,7 @@ build: submodules
 	mvn compile
 
 .PHONY: dev
-dev: clean
+dev: clean submodules
 	mvn package -DskipTests=true
 	cp target/$(artifact_name)-unversioned.jar $(artifact_name).jar
 
