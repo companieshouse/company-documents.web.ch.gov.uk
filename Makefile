@@ -12,11 +12,11 @@ clean:
 	rm -f ./build.log
 
 .PHONY: build
-build:
+build: submodules
 	mvn compile
 
 .PHONY: dev
-dev: clean
+dev: clean submodules
 	mvn package -DskipTests=true
 	cp target/$(artifact_name)-unversioned.jar $(artifact_name).jar
 
@@ -26,6 +26,11 @@ test: test-unit
 .PHONY: test-unit
 test-unit: clean
 	mvn test
+
+.PHONY: submodules
+submodules:
+	git submodule init
+	git submodule update
 
 .PHONY: package
 package:
@@ -38,6 +43,7 @@ endif
 	$(eval tmpdir:=$(shell mktemp -d build-XXXXXXXXXX))
 	cp ./start.sh $(tmpdir)
 	cp ./routes.yaml $(tmpdir)
+	cp -r ./api-enumerations $(tmpdir)
 	cp ./target/$(artifact_name)-$(version).jar $(tmpdir)/$(artifact_name).jar
 	cd $(tmpdir); zip -r ../$(artifact_name)-$(version).zip *
 	rm -rf $(tmpdir)

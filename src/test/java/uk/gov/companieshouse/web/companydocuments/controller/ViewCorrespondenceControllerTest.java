@@ -17,7 +17,6 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-
 @ExtendWith(MockitoExtension.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestPropertySource(properties = {
@@ -44,7 +43,7 @@ public class ViewCorrespondenceControllerTest {
 
     @Test
     @DisplayName("Get View Correspondence - Successful")
-    public void getCorrespondenceSuccessfully() throws Exception {
+    void getCorrespondenceSuccessfully() throws Exception {
         this.mockMvc.perform(get(VIEW_CORRESPONDENCE_PATH))
                 .andExpect(status().isOk());
     }

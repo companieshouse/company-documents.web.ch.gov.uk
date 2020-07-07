@@ -12,13 +12,68 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-            <form id="correspondence-form" class="form" th:action="@{''}" method="post">
+            <form id="companyDetails-form" class="form" th:object="${companyDetail}" th:action="@{''}" method="post">
                 <header>
                     <h1 id="page-title" class="govuk-heading-l">
-                        Company Details
+                        Confirm this is the correct company
                     </h1>
                 </header>
 
+                <dl class="app-check-your-answers app-check-your-answers--short">
+                    <div class="app-check-your-answers__contents">
+                        <dt class="app-check-your-answers__question">
+                            Company name
+                        </dt>
+                        <dd class="app-check-your-answers__answer"  id="companyDetail-companyName"
+                            th:utext="*{#strings.replace(companyName,'&#10;','&lt;br&gt;')}">
+                        </dd>
+                    </div>
+
+                    <div class="app-check-your-answers__contents">
+                        <dt class="app-check-your-answers__question">
+                            Company number
+                        </dt>
+                        <dd class="app-check-your-answers__answer" id="companyDetail-companyNumber"
+                            th:utext="*{#strings.replace(companyNumber,'&#10;','&lt;br&gt;')}">
+                        </dd>
+                    </div>
+
+                    <div class="app-check-your-answers__contents">
+                        <dt class="app-check-your-answers__question">
+                            Status
+                        </dt>
+                        <dd class="app-check-your-answers__answer" id="companyDetail-status"
+                            th:utext="*{#strings.replace(status,'&#10;','&lt;br&gt;')}">
+                        </dd>
+                    </div>
+
+                    <div class="app-check-your-answers__contents">
+                        <dt class="app-check-your-answers__question">
+                            Incorporation date
+                        </dt>
+                        <dd class="app-check-your-answers__answer" id="companyDetail-incorporationDate"
+                            th:utext="*{#temporals.format(incorporationDate, 'd MMMM yyyy')}">
+                        </dd>
+                    </div>
+
+                    <div class="app-check-your-answers__contents">
+                        <dt class="app-check-your-answers__question">
+                            Company type
+                        </dt>
+                        <dd class="app-check-your-answers__answer" id="companyDetail-companyType"
+                            th:utext="*{#strings.replace(companyType,'&#10;','&lt;br&gt;')}">
+                        </dd>
+                    </div>
+
+                    <div class="app-check-your-answers__contents">
+                        <dt class="app-check-your-answers__question">
+                            Registered office address
+                        </dt>
+                        <dd class="app-check-your-answers__answer" id="companyDetail-registeredOfficeAddress"
+                            th:utext="*{#strings.replace(registeredOfficeAddress,'&#10;','&lt;br&gt;')}">
+                        </dd>
+                    </div>
+                </dl>
             </form>
         </div>
     </div>
