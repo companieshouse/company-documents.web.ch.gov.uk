@@ -22,10 +22,10 @@ public class WebSecurityConfigurer {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
 
-            HttpSecurity matcher = http.antMatcher("/company/**");
-            matcher.addFilterBefore(new SessionHandler(), BasicAuthenticationFilter.class);
-            matcher.addFilterBefore(new CompanyAuthFilter(), BasicAuthenticationFilter.class);
-            matcher.addFilterBefore(new HijackFilter(), BasicAuthenticationFilter.class);
+            http.antMatcher("/company-documents/company/**")
+            .addFilterBefore(new SessionHandler(), BasicAuthenticationFilter.class)
+            .addFilterBefore(new CompanyAuthFilter(), BasicAuthenticationFilter.class)
+            .addFilterBefore(new HijackFilter(), BasicAuthenticationFilter.class);
         }
     }
 
