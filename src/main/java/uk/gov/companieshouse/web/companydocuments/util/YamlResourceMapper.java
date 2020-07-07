@@ -18,7 +18,7 @@ public class YamlResourceMapper {
 
         } catch (FileNotFoundException e) {
 
-            throw new RuntimeException(e);
+            throw new IllegalArgumentException("Could not load YAML file: " + filePath, e);
         }
     }
 }
