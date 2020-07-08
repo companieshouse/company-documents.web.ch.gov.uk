@@ -1,6 +1,5 @@
 package uk.gov.companieshouse.web.companydocuments.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.UriTemplate;
 import uk.gov.companieshouse.api.error.ApiErrorResponseException;
@@ -16,11 +15,10 @@ public class CompanyService {
 
     private static final UriTemplate COMPANY_URI = new UriTemplate("/company/{companyNumber}");
 
-    private ApiClientService apiClientService;
+    private final ApiClientService apiClientService;
 
-    private CompanyTransformer companyTransformer;
+    private final CompanyTransformer companyTransformer;
 
-    @Autowired
     public CompanyService(ApiClientService apiClientService, CompanyTransformer companyTransformer) {
         this.apiClientService = apiClientService;
         this.companyTransformer = companyTransformer;

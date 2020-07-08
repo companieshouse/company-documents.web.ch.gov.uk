@@ -12,8 +12,11 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 @RequestMapping("/company-documents/view-correspondence")
 public class ViewCorrespondenceController extends BaseController {
 
-    @Value("${chs.url}")
-    private String chsUrl;
+    private final String chsUrl;
+
+    public ViewCorrespondenceController(@Value("${chs.url}") String chsUrl) {
+        this.chsUrl = chsUrl;
+    }
 
     @GetMapping
     public String getCorrespondence() {

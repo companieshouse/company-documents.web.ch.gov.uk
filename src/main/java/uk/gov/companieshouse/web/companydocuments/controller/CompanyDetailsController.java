@@ -1,6 +1,5 @@
 package uk.gov.companieshouse.web.companydocuments.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,14 +14,13 @@ import uk.gov.companieshouse.web.companydocuments.service.CompanyService;
 @RequestMapping("/company-documents/{companyNumber}/details")
 public class CompanyDetailsController extends BaseController {
 
-    @Value("${chs.url}")
-    private String chsUrl;
+    private final String chsUrl;
+    private final CompanyService companyService;
 
-    private CompanyService companyService;
-
-    @Autowired
-    public CompanyDetailsController(CompanyService companyService) {
+    public CompanyDetailsController(CompanyService companyService,
+                    @Value("${chs.url}") String chsUrl) {
         this.companyService = companyService;
+        this.chsUrl = chsUrl;
     }
 
     @GetMapping
