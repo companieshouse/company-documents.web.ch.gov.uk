@@ -58,7 +58,7 @@ public class CompanyTransformerTest {
     @BeforeEach
     private void setup() {
 
-        this.companyTransformer = new CompanyTransformer(enumerationConstantsMapper);
+        companyTransformer = new CompanyTransformer(enumerationConstantsMapper);
 
         when(companyProfile.getCompanyNumber()).thenReturn(COMPANY_NUMBER);
 

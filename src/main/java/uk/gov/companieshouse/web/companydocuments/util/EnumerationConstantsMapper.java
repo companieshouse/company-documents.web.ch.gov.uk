@@ -11,13 +11,14 @@ public class EnumerationConstantsMapper {
 
     private final Map<String, String> companyStatuses;
 
+    @SuppressWarnings("unchecked")
     @Autowired
     public EnumerationConstantsMapper(YamlResourceMapper yamlResourceMapper) {
 
         Map<String, Object> enumerationConstants = yamlResourceMapper.fetchYamlFromFile("api-enumerations/constants.yml");
 
-        this.companyTypes = (Map<String, String>) enumerationConstants.get("company_type");
-        this.companyStatuses = (Map<String, String>) enumerationConstants.get("company_status");
+        companyTypes = (Map<String, String>) enumerationConstants.get("company_type");
+        companyStatuses = (Map<String, String>) enumerationConstants.get("company_status");
     }
 
     public String getCompanyType(String enumeration) {

@@ -60,7 +60,7 @@ public class CompanyServiceTest {
     @BeforeEach
     private void setup() {
 
-        this.companyService = new CompanyService(apiClientService, companyTransformer);
+        companyService = new CompanyService(apiClientService, companyTransformer);
 
         when(apiClientService.getApiClient()).thenReturn(apiClient);
 

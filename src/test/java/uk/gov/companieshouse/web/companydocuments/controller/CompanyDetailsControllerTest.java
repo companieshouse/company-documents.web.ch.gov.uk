@@ -30,6 +30,8 @@ public class CompanyDetailsControllerTest {
 
     private static final String COMPANY_DETAILS_MODEL_ATTR = "companyDetail";
 
+    private static final String CHS_URL = "localhost:888";
+
     private MockMvc mockMvc;
 
     @Mock
@@ -42,8 +44,8 @@ public class CompanyDetailsControllerTest {
 
     @BeforeEach
     private void setup() {
-        this.controller = new CompanyDetailsController(companyService);
-        this.mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+        controller = new CompanyDetailsController(companyService, CHS_URL);
+        mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
 
     @Test
@@ -57,6 +59,4 @@ public class CompanyDetailsControllerTest {
                 .andExpect(view().name(COMPANY_DETAILS_VIEW))
                 .andExpect(model().attributeExists(COMPANY_DETAILS_MODEL_ATTR));
     }
-
-
 }

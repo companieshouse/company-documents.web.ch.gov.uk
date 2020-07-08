@@ -38,13 +38,13 @@ public class ViewCorrespondenceControllerTest {
     @BeforeEach
     private void setup() {
 
-        this.mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
 
     @Test
     @DisplayName("Get View Correspondence - Successful")
     void getCorrespondenceSuccessfully() throws Exception {
-        this.mockMvc.perform(get(VIEW_CORRESPONDENCE_PATH))
+        mockMvc.perform(get(VIEW_CORRESPONDENCE_PATH))
                 .andExpect(status().isOk());
     }
 

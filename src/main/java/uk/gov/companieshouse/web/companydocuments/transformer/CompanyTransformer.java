@@ -10,7 +10,7 @@ import uk.gov.companieshouse.web.companydocuments.util.EnumerationConstantsMappe
 @Component
 public class CompanyTransformer {
 
-    private EnumerationConstantsMapper enumerationConstantsMapper;
+    private final EnumerationConstantsMapper enumerationConstantsMapper;
 
     @Autowired
     public CompanyTransformer(EnumerationConstantsMapper enumerationConstantsMapper) {

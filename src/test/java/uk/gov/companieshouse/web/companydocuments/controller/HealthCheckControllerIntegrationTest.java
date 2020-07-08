@@ -26,13 +26,13 @@ class HealthCheckControllerIntegrationTest {
     @BeforeEach
     private void setup() {
 
-        this.mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
 
     @Test
     @DisplayName("Successfully returns health status")
     public void returnHealthStatusSuccessfully() throws Exception {
-        this.mockMvc.perform(get("/company-documents/healthcheck"))
+        mockMvc.perform(get("/company-documents/healthcheck"))
                 .andExpect(status().isOk());
     }
 }

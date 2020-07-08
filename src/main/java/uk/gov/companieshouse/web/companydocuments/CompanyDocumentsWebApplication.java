@@ -1,6 +1,5 @@
 package uk.gov.companieshouse.web.companydocuments;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -12,9 +11,8 @@ public class CompanyDocumentsWebApplication implements WebMvcConfigurer {
 
     public static final String APPLICATION_NAMESPACE = "company-documents.web.ch.gov.uk";
 
-    private LoggingInterceptor loggingInterceptor;
+    private final LoggingInterceptor loggingInterceptor;
 
-    @Autowired
     public CompanyDocumentsWebApplication(LoggingInterceptor loggingInterceptor) {
 
         this.loggingInterceptor = loggingInterceptor;

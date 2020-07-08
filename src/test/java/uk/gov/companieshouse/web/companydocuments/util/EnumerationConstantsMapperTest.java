@@ -56,7 +56,7 @@ public class EnumerationConstantsMapperTest {
 
         when(yamlResourceMapper.fetchYamlFromFile(FILE_PATH)).thenReturn(constants);
 
-        this.enumerationConstantsMapper = new EnumerationConstantsMapper(yamlResourceMapper);
+        enumerationConstantsMapper = new EnumerationConstantsMapper(yamlResourceMapper);
     }
 
     @Test
