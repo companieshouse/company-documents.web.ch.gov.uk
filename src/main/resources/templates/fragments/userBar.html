@@ -4,15 +4,20 @@
         <title>User Bar</title>
     </head>
     <body>
-        <div th:fragment="userBar" th:classappend="${userEmail == null ? 'hidden' : ''}" class="js-toggle-nav" id="global-nav">
+        <div th:fragment="userBar" class="js-toggle-nav" id="global-nav">
 
             <nav class="content" role="navigation">
                 <ul id="navigation" class="mobile-hidden">
-                    <li class="user" id="signed-in-user"th:text="${userEmail + ':'}"></li>
-                    <li><a th:href="@{{chsAccountUrl}/user/account(chsAccountUrl=${@environment.getProperty('account.url')})}" id="your-details" class="piwik-event" data-event-id="Your details - top menu">Your details</a></li>
-                    <li><a href="/user/transactions" id="your-filings" class="piwik-event" data-event-id="Your filings - top menu">Your filings</a></li>
-                    <li><a th:href="@{{chsFollowUrl}(chsFollowUrl=${@environment.getProperty('monitorGui.url')})}" id="companies-you-follow" class="piwik-event" data-event-id="Companies you follow">Companies you follow</a></li>
-                    <li><a href="/signout" id="user-signout" class="piwik-event" data-event-id="Sign out">Sign out</a></li>
+                    <th:block th:if="${userEmail != null}">
+                        <li class="user" id="signed-in-user"th:text="${userEmail + ':'}"></li>
+                        <li><a th:href="@{{chsAccountUrl}/user/account(chsAccountUrl=${@environment.getProperty('account.url')})}" id="your-details" class="piwik-event" data-event-id="Your details - top menu">Your details</a></li>
+                        <li><a href="/user/transactions" id="your-filings" class="piwik-event" data-event-id="Your filings - top menu">Your filings</a></li>
+                        <li><a th:href="@{{chsFollowUrl}(chsFollowUrl=${@environment.getProperty('monitorGui.url')})}" id="companies-you-follow" class="piwik-event" data-event-id="Companies you follow">Companies you follow</a></li>
+                        <li><a href="/signout" id="user-signout" class="piwik-event" data-event-id="Sign out">Sign out</a></li>
+                    </th:block>
+                    <th:block th:unless="${userEmail != null}">
+                        <li><a href="/signin" id="user-signin" class="piwik-event" data-event-id="Sign in">Sign in / Register</a></li>
+                    </th:block>
                 </ul>
             </nav>
         </div>
