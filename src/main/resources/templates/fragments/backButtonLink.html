@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title></title>
+    </head>
+        <body>
+            <a id="back-button-link"
+               th:fragment="backButtonLink"
+               th:if="${backButton != null}"
+               th:href="${backButton}"
+               class="govuk-back-link">
+                Back
+            </a>
+        </body>
+</html>

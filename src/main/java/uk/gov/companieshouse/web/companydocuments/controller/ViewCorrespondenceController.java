@@ -9,7 +9,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 @Controller
-@RequestMapping("/company-documents/view-correspondence")
+@RequestMapping(value=NavigationUrls.VIEW_CORRESPONDENCE)
 public class ViewCorrespondenceController extends BaseController {
 
     private final String chsUrl;
@@ -26,7 +26,7 @@ public class ViewCorrespondenceController extends BaseController {
     @PostMapping
     public String postCorrespondence(RedirectAttributes attributes) {
 
-        attributes.addAttribute("forward", "/company-documents/{companyNumber}/details");
+        attributes.addAttribute("forward", NavigationUrls.COMPANY_DETAILS);
         return UrlBasedViewResolver.REDIRECT_URL_PREFIX + chsUrl + "/company-lookup/search";
     }
 
