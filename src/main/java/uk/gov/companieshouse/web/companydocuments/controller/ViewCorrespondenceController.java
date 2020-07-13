@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
+import org.springframework.web.util.UriTemplate;
 
 @Controller
-@RequestMapping("/company-documents/view-correspondence")
+@RequestMapping(value=NavigationUrls.VIEW_CORRESPONDENCE)
 public class ViewCorrespondenceController extends BaseController {
 
     private final String chsUrl;
@@ -26,8 +27,8 @@ public class ViewCorrespondenceController extends BaseController {
     @PostMapping
     public String postCorrespondence(RedirectAttributes attributes) {
 
-        attributes.addAttribute("forward", "/company-documents/{companyNumber}/details");
-        return UrlBasedViewResolver.REDIRECT_URL_PREFIX + chsUrl + "/company-lookup/search";
+        attributes.addAttribute("forward", NavigationUrls.COMPANY_DETAILS);
+        return UrlBasedViewResolver.REDIRECT_URL_PREFIX + chsUrl + new UriTemplate(NavigationUrls.COMPANY_LOOKUP_SEARCH);
     }
 
     @Override
