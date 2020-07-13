@@ -1,6 +1,5 @@
 package uk.gov.companieshouse.web.companydocuments.controller;
 
-import java.util.Optional;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ListCompanyDocumentsController extends BaseController {
 
     @GetMapping
-    public String getListCompanyDocuments(@PathVariable Optional<String> companyNumber, Model model) {
-        model.addAttribute("backButton", NavigationUrls.COMPANY_DETAILS.replace("{companyNumber}", companyNumber.get()));
+    public String getListCompanyDocuments(@PathVariable String companyNumber, Model model) {
+        model.addAttribute("backButton", NavigationUrls.COMPANY_DETAILS.replace("{companyNumber}", companyNumber));
 
         return getTemplateName();
     }
