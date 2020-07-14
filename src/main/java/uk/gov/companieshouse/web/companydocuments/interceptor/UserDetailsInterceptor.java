@@ -10,7 +10,6 @@ import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import uk.gov.companieshouse.web.companydocuments.session.SessionService;
 
 @Component
@@ -22,8 +21,13 @@ public class UserDetailsInterceptor extends HandlerInterceptorAdapter {
     private static final String USER_PROFILE_KEY = "user_profile";
     private static final String EMAIL_KEY = "email";
 
+    private SessionService sessionService;
+
     @Autowired
-    SessionService sessionService;
+    public UserDetailsInterceptor(SessionService sessionService) {
+
+        this.sessionService = sessionService;
+    }
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable ModelAndView modelAndView) throws Exception {
@@ -32,8 +36,7 @@ public class UserDetailsInterceptor extends HandlerInterceptorAdapter {
             return;
         }
 
-        if ((isGetRequest(request) && !isResumeRequest(request))
-                || isPostRequestRedirect(request, modelAndView)) {
+        if (isGetRequest(request)) {
 
             addUserDetailsToModelAndView(modelAndView);
         }
@@ -41,15 +44,6 @@ public class UserDetailsInterceptor extends HandlerInterceptorAdapter {
 
     private boolean isGetRequest(HttpServletRequest request) {
         return request.getMethod().equalsIgnoreCase(HttpMethod.GET.toString());
-    }
-
-    private boolean isPostRequestRedirect(HttpServletRequest request, ModelAndView modelAndView) {
-        return request.getMethod().equalsIgnoreCase(HttpMethod.POST.toString()) &&
-                !modelAndView.getViewName().startsWith(UrlBasedViewResolver.REDIRECT_URL_PREFIX);
-    }
-
-    private boolean isResumeRequest(HttpServletRequest request) {
-        return request.getRequestURI().endsWith("/resume");
     }
 
     private void addUserDetailsToModelAndView(ModelAndView modelAndView) {

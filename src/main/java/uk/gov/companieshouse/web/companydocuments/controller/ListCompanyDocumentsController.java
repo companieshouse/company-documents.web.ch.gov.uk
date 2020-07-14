@@ -15,7 +15,6 @@ public class ListCompanyDocumentsController extends BaseController {
     public String getListCompanyDocuments(@PathVariable String companyNumber, Model model) {
 
         model.addAttribute(BACK_BUTTON_KEY, new UriTemplate(NavigationUrls.COMPANY_DETAILS).expand(companyNumber));
-
         return getTemplateName();
     }
 
