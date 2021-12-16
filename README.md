@@ -1,5 +1,9 @@
 # Companies House Company documents WEB
 
+# NEEDS LOG4J SECURITY FIXES - THIS SERVICE IS NOT IN LIVE OR STAGING AND HAS BEEN REMOVED FROM CI-DEV
+# PIPELINE HAS HAD AUTO DEPLOY TO CI-DEV DISABLED
+# SEE DEBT-1499 AND DEBT-1498 IN JIRA
+
 ## company-documents.web.ch.gov.uk
 Web application for handling the retrieval of company documents
 
