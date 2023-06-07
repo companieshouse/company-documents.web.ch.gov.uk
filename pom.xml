@@ -22,6 +22,8 @@
         <structured-logging.version>1.5.0-rc2</structured-logging.version>
         <web-security-java.version>1.3.10</web-security-java.version>
 
+        <dependency-check-plugin.version>8.2.1</dependency-check-plugin.version>
+
         <start-class>uk.gov.companieshouse.web.companydocuments.CompanyDocumentsWebApplication</start-class>
     </properties>
 
@@ -163,6 +165,19 @@
                         <!-- other annotation processors -->
                     </annotationProcessorPaths>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>${dependency-check-plugin.version}</version>
+                <executions>
+                    <execution>
+                    <goals>
+                        <goal>check</goal>
+                    </goals>
+                    </execution>
+                </executions>
             </plugin>
 
         </plugins>
